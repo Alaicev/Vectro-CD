@@ -183,7 +183,7 @@ html {
 }
 .course__carusel {
   width: 80%;
-  margin: 50px auto 100px;
+  margin: 100px auto 100px;
   display: flex;
   align-items: center;
   position: relative;
@@ -300,6 +300,21 @@ html {
 }
 .coll-back__text {
   height: 120px;
+}
+.coll-back__submit {
+  border-radius: 20px;
+  color: black;
+  box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.536);
+  transition: all 0.2s;
+  background-color: rgba(255, 255, 255, 0.419);
+  border: none;
+}
+.coll-back__submit:hover {
+  transform: scale(1.02);
+}
+.coll-back__submit:active {
+  box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.536), inset -1px -1px 3px 3px rgb(255, 255, 255);
+  transform: scale(0.99);
 }
 
 .contacts {

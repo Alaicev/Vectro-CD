@@ -1,11 +1,12 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="bodyBlock">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sector-DT</title>
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="./css/styleWelcome.css">
 </head>
 <body>
   <header class="header">
@@ -29,6 +30,26 @@
     </div>
   </header>
   <main>
+    <section class="welcome" id="welcome">
+      <div class="welcome__container">
+          <div class="welcome__image-container">
+              <div class="welcome__image-items">
+                  <img src="./assets/img/Vr.png" alt="" class="welcome__image">
+              </div>
+              <div class="welcome__image-items">
+                  <img src="./assets/img/Kopter.png" alt="" class="welcome__image">
+                  <img src="./assets/img/Ar.png" alt="" class="welcome__image ">
+              </div>
+              <div class="welcome__image-items">
+                  <img src="./assets/img/Arduino.png" alt="" class="welcome__image">
+                  <img src="./assets/img/Komp.png" alt="" class="welcome__image">
+              </div>
+              <div class="welcome__image-items">
+                  <img src="./assets/img/Wifi.png" alt="" class="welcome__image active">
+              </div>
+          </div>
+      </div>
+  </section>
     <section class="intro">
       <div class="intro__skew-block">
         <div class="intro__skew-block-item-1 intro__skew-block-item"></div>
@@ -75,6 +96,22 @@
             </div>
             <img class="vr__image" src="./assets/img/model.png" alt="">
           </div>
+          <div class="course__carusel">
+            <div class="course__carusel-button-container">
+              <button class="course__carusel-button course__carusel-button-prev">
+                <img src="./assets/img/button-prev.png" alt="">
+              </button>
+              <button class="course__carusel-button course__carusel-button-next">
+                <img src="./assets/img/button-next.png" alt="">
+              </button>
+            </div>
+            <div class="course__carusel-block">
+              <div class="course__carusel-container "></div>
+              <div class="course__carusel-container "></div>
+              <div class="course__carusel-container "></div>
+            </div>
+            <div class="course__carusel-progress course__carusel-progress-active"></div>
+          </div>
           <div class="vr__perfect">
             <h2 class="vr__perfect-title title-h2 title-h3">Плюсы от использования VR-технологий в обучении:</h2>
             <div class="vr__perfect-container">
@@ -106,7 +143,7 @@
               <p class="course__text text">Это атлас нового поколения в 3D, в котором вы найдете интерактивные и очень подробные модели эмбрионального развития крупного рогатого скота. Вся система эмбрионального развития была реконструирована в 3D, где вы можете вращать и приближать каждую модель, а также подробно рассматривать их под любым углом.</p>
               <p class="course__text text">При выборе моделей или значков будут показаны термины, относящиеся к любой специфической части. Это полезный инструмент для специалистов и студентов, которые получают образование в сфере ветеринарии.</p>
             </div>
-            <div class="course__carusel">
+            <!-- <div class="course__carusel">
               <div class="course__carusel-button-container">
                 <button class="course__carusel-button course__carusel-button-prev">
                   <img src="./assets/img/button-prev.png" alt="">
@@ -121,7 +158,7 @@
                 <div class="course__carusel-container "></div>
               </div>
               <div class="course__carusel-progress course__carusel-progress-active"></div>
-            </div>
+            </div> -->
             <div class="course__text-offer">
               <h2 class="course__offer-title title-h2 title-h3">Компания «Сектор-ЦД» предлагает к использованию:</h2>
               <ul class="course__offer-list">
@@ -211,6 +248,7 @@
         </div>
     </div>
 </footer>
+<script src="./script/WelcomeScript.js"></script>
 <script src="./script/index.js"></script>
 </body>
 </html>

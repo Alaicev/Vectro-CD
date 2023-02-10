@@ -327,6 +327,21 @@ html {
   &__text{
       height:120px
   }
+  &__submit{
+    border-radius: 20px;
+    color: black;
+    box-shadow: 1px 1px 3px 1px rgba(0, 0, 0, 0.536);
+    transition: all 0.2s;
+    background-color: rgba(255, 255, 255, 0.419);
+    border: none;
+    &:hover{
+      transform: scale(1.02);
+    }
+    &:active{
+      box-shadow: inset 1px 1px 3px 1px rgba(0, 0, 0, 0.536), inset -1px -1px 3px 3px rgb(255, 255, 255);
+      transform: scale(0.99);
+    }
+  }
 }
 
 .contacts{
