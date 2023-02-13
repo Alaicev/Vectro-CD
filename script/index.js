@@ -6,11 +6,15 @@ const caruselBlock = document.querySelector('.course__carusel-block')
 const allBlockInfo = document.querySelectorAll('.course__offer-item')
 const allSections = document.querySelectorAll('.nav')
 const allLinks = document.querySelectorAll('.navigation__item')
+const hamburger = document.querySelector(".hamb-cintainer")
 
 
 allLinks.forEach((el, i) => {
   el.addEventListener("click", () => {
     allSections[i].scrollIntoView() 
+    document.querySelector(".hamb").classList.remove("hamb-active")
+    document.querySelector("html").classList.remove("bodyBlock")
+  document.querySelector(".navigation__items").classList.remove("navigation__items-hamb")
   })
 })
 
@@ -22,6 +26,12 @@ window.addEventListener('scroll', function() {
     document.querySelector(".header").classList.remove('header__to-scroll')
   }
 })
+
+hamburger. onclick = () => {
+  document.querySelector(".hamb").classList.toggle("hamb-active")
+  document.querySelector("html").classList.toggle("bodyBlock")
+  document.querySelector(".navigation__items").classList.toggle("navigation__items-hamb")
+}
 
 const imageToCarusel = [
 './assets/img/Photo-1.jpg',

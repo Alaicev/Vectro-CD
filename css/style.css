@@ -17,6 +17,7 @@ html {
   font-size: 20px;
   background-color: rgb(255, 255, 255);
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 .title-h2 {
@@ -36,6 +37,41 @@ html {
   padding-bottom: 30px;
 }
 
+.hamb-cintainer {
+  width: 30px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  display: none;
+}
+
+.hamb {
+  width: 100%;
+  height: 5px;
+  background-color: white;
+}
+.hamb::before {
+  position: absolute;
+  content: "";
+  top: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background-color: white;
+  transition: all 0.2s;
+}
+.hamb::after {
+  position: absolute;
+  content: "";
+  bottom: 0;
+  left: 0;
+  height: 5px;
+  width: 100%;
+  background-color: white;
+  transition: all 0.2s;
+}
+
 .header {
   background: linear-gradient(rgba(0, 0, 0, 0.325), rgba(0, 0, 0, 0.029));
   padding: 10px 0;
@@ -44,11 +80,36 @@ html {
   z-index: 12;
   color: rgb(255, 255, 255);
   transition: all 0.2s;
+  text-align: center;
 }
 .header__to-scroll {
   background: rgb(255, 255, 255);
   color: rgb(0, 0, 0);
   box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.5);
+}
+.header__to-scroll .hamb {
+  background: black;
+}
+.header__to-scroll .hamb::after {
+  background: black;
+}
+.header__to-scroll .hamb::before {
+  background: black;
+}
+
+.hamb-active,
+.header__to-scroll .hamb-active {
+  background-color: transparent;
+}
+.hamb-active::before,
+.header__to-scroll .hamb-active::before {
+  transform: rotate(45deg);
+  top: 50%;
+}
+.hamb-active::after,
+.header__to-scroll .hamb-active::after {
+  top: 50%;
+  transform: rotate(-45deg);
 }
 
 .navigation {
@@ -61,6 +122,7 @@ html {
 }
 .navigation__items {
   display: flex;
+  align-items: center;
   gap: 60px;
 }
 .navigation__item {
@@ -183,7 +245,7 @@ html {
 }
 .course__carusel {
   width: 80%;
-  margin: 100px auto 100px;
+  margin: 50px auto 100px;
   display: flex;
   align-items: center;
   position: relative;
@@ -222,6 +284,7 @@ html {
   width: 100%;
   height: 100%;
   background-size: cover;
+  background-position: center;
 }
 .course__offer-title {
   text-align: center;
@@ -376,7 +439,8 @@ html {
   position: fixed;
   z-index: -2;
   top: 0;
-  width: 100%;
+  left: 0;
+  width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.645);
   display: flex;
@@ -386,7 +450,6 @@ html {
   opacity: 0;
 }
 .block-info__container {
-  width: 70%;
   padding: 50px;
   border-radius: 40px;
   background: linear-gradient(150deg, rgba(132, 104, 209, 0.889), rgba(9, 200, 82, 0.812));
@@ -469,6 +532,266 @@ html {
   }
   100% {
     transform: translateY(0);
+  }
+}
+@media screen and (max-width: 1270px) {
+  .intro__skew-block-item-1 {
+    width: 75%;
+  }
+  .intro__skew-block-item-2 {
+    left: 76%;
+  }
+  .intro__skew-block-item-3 {
+    left: 80%;
+  }
+  .intro__skew-block-item-4 {
+    left: 82%;
+  }
+  .navigation__items {
+    gap: 40px;
+  }
+  .navigation__item {
+    width: 142px;
+  }
+  .course__offer-item-text {
+    height: 80px;
+  }
+  .course__offer-img {
+    height: 140px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  html {
+    text-align: center;
+    font-size: 16px;
+  }
+  .wrapper {
+    padding: 0 10px;
+  }
+  .intro__title {
+    font-size: 2rem;
+  }
+  .navigation__items {
+    flex-direction: column;
+    position: absolute;
+    padding: 20px 500px 500px 20px;
+    background-color: rgba(0, 0, 0, 0.307);
+    top: 0;
+    right: -2000px;
+    color: white;
+    transition: all 0.5s;
+  }
+  .navigation__items-hamb {
+    right: 0;
+  }
+  .hamb-cintainer {
+    display: flex;
+  }
+  .about__grid-container {
+    display: block;
+  }
+  .about__image-container img {
+    display: none;
+  }
+  .vr__flex-container {
+    display: flex;
+    flex-direction: column-reverse;
+    gap: 20px;
+    align-items: center;
+  }
+  .vr__image {
+    width: 500px;
+    height: auto;
+  }
+  .title-h2 {
+    text-align: center;
+  }
+  .course__offer-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+  }
+  .course__offer-item {
+    width: 400px;
+    height: auto;
+  }
+  .course__offer-item-text {
+    height: auto;
+  }
+  .coll-back__container {
+    background: url(../assets/img/Coll-back-back.jpg);
+    background-position: center right 0;
+    background-size: cover;
+  }
+  .coll-back__block {
+    width: 70%;
+    padding: 100px 0;
+    margin: auto;
+  }
+  .coll-back__title {
+    text-align: center;
+  }
+  .coll-back__name, .coll-back__email, .coll-back__text, .coll-back__submit {
+    display: block;
+    margin: 20px auto;
+    width: 80%;
+    padding: 20px 10px;
+    border-radius: 20px;
+    font-size: 16px;
+    resize: none;
+  }
+  .coll-back__text {
+    height: 120px;
+  }
+  .contacts {
+    color: #fff;
+  }
+  .contacts__container {
+    padding: 50px 0 0;
+  }
+  .contacts__grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #fff;
+    padding-bottom: 50px;
+    margin-bottom: 20px;
+  }
+  .contacts__location {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 1.3rem;
+  }
+  .contacts__links {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contacts__item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contacts__item:hover {
+    opacity: 0.6;
+  }
+  .contacts__img {
+    width: 40px;
+  }
+  .contacts__support p {
+    padding-bottom: 10px;
+    font-weight: 100;
+    font-size: 0.8rem;
+  }
+  .contacts__support a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contacts__support a:hover {
+    opacity: 0.6;
+  }
+}
+@media screen and (max-width: 768px) {
+  .navigation__items {
+    width: 100%;
+    padding: 20px 0 500px 0;
+    text-align: left;
+    left: 2000px;
+  }
+  .navigation__items-hamb {
+    left: 0;
+  }
+  .intro__skew-block {
+    transform: skew(0) translateX(0);
+  }
+  .intro__skew-block-item-1 {
+    width: 100%;
+  }
+  .intro__skew-block-item-2 {
+    display: none;
+  }
+  .intro__skew-block-item-3 {
+    display: none;
+  }
+  .intro__skew-block-item-4 {
+    display: none;
+  }
+  .vr__image {
+    width: 280px;
+  }
+  .course__offer-item {
+    width: 280px;
+  }
+  .coll-back__block {
+    width: 80%;
+    padding: 100px 0;
+  }
+  .course__container {
+    padding: 20px 10px;
+    border-radius: 20px;
+  }
+  .course__carusel {
+    width: 100%;
+    height: 60vw;
+  }
+  .contacts {
+    color: #fff;
+  }
+  .contacts__container {
+    padding: 50px 0 0;
+  }
+  .contacts__grid {
+    flex-direction: column;
+    gap: 40px;
+  }
+  .contacts__location {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    font-size: 1.3rem;
+  }
+  .contacts__links {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    gap: 20px;
+  }
+  .contacts__item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contacts__item:hover {
+    opacity: 0.6;
+  }
+  .contacts__img {
+    width: 40px;
+  }
+  .contacts__support p {
+    padding-bottom: 10px;
+    font-weight: 100;
+    font-size: 0.8rem;
+  }
+  .contacts__support a {
+    color: #fff;
+    text-decoration: none;
+    transition: all 0.2s;
+  }
+  .contacts__support a:hover {
+    opacity: 0.6;
+  }
+  .title-h2 {
+    font-size: 20px;
   }
 }
 
