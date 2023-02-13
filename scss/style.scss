@@ -23,6 +23,7 @@ html {
   font-size: $size;
   background-color: rgb(255, 255, 255,);
   scroll-behavior: smooth;
+  overflow-x: hidden; 
 }
 
 .title-h2{
@@ -42,6 +43,44 @@ html {
   padding-bottom: $text-pading
 }
 
+.hamb-cintainer{
+  width: 30px;
+  height: 25px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  display: none;
+} 
+
+.hamb { 
+  width: 100%;
+  height: 5px;
+  background-color: white;
+  &::before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background-color: white;
+    transition: all 0.2s;
+  }
+  &::after {
+    position: absolute;
+    content: '';
+    bottom: 0;
+    left: 0;
+    height: 5px;
+    width: 100%;
+    background-color: white;
+    transition: all 0.2s;
+  }
+}
+
+
+
+
 // ---------HEADER----------
 .header {
   background: linear-gradient(rgba(0, 0, 0, 0.325),rgba(0, 0, 0, 0.029));
@@ -51,14 +90,39 @@ html {
   z-index: 12;
   color: rgb(255, 255, 255);
   transition: all 0.2s;
+  text-align: center;
   &__to-scroll{
     background: rgb(255, 255, 255);
     color: rgb(0, 0, 0);
     box-shadow: 2px 0 4px 0 rgba(0, 0, 0, 0.5);
+    & .hamb {
+      background: black;
+      &::after{
+        background: black;
+      }
+      &::before{
+        background: black;
+      }
+    }
   }
 }
 
+.hamb-active, 
+.header__to-scroll .hamb-active{
+  background-color: transparent;
+  &::before {
+    transform: rotate(45deg);
+    top: 50%;
+  }
+  &::after {
+    top: 50%;
+    transform: rotate(-45deg);
+  }
+}
+
+
 .navigation {
+  // position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -67,6 +131,7 @@ html {
   }
   &__items {
     display: flex;
+    align-items: center;
     gap: 60px;
   }
   &__item {
@@ -240,6 +305,7 @@ html {
       width: 100%;
       height: 100%;
       background-size: cover;
+      background-position: center;
     }
   }
   &__offer {
@@ -406,7 +472,8 @@ html {
   position: fixed;
   z-index: -2;
   top: 0;
-  width: 100%;
+  left: 0;
+  width: 100vw;
   height: 100vh;
   background-color: rgba(0, 0, 0, 0.645);
   display: flex;
@@ -415,7 +482,6 @@ html {
   transition: all 0.5s;
   opacity: 0;
   &__container {
-    width: 70%;
     padding: 50px;
     border-radius: 40px;
     background:linear-gradient(150deg, rgba(132, 104, 209, 0.889),rgba(9, 200, 82, 0.812));
@@ -502,4 +568,301 @@ html {
   100%{
       transform: translateY(0)
   }
+}
+
+
+@media screen and (max-width: 1270px) {
+  .intro {
+    &__skew-block {
+      &-item {
+          &-1{
+              width: 75%;
+          }
+          &-2{
+              left:76%;
+          }
+          &-3{
+              left:80%; 
+          }
+          &-4{
+              left:82%; 
+          }
+      }
+  }
+  }
+  .navigation__items {
+    gap: 40px;
+}
+  .navigation__item {
+    width: 142px;
+}
+  .course__offer-item-text {
+    height: 80px;
+}
+.course__offer-img {
+  height: 140px;
+}
+}
+
+@media screen and (max-width: 1000px) {
+  html {
+    text-align: center;
+    font-size: 16px;
+  }
+  .wrapper {
+    padding: 0 10px
+  }
+  .intro__title{
+    font-size: 2rem;
+  }
+  .navigation__items{
+    flex-direction: column;
+    position: absolute;
+    padding: 20px 500px 500px 20px;
+    background-color: rgba(0, 0, 0, 0.307);
+    top: 0;
+    right:  -2000px;
+    color: white;
+    transition: all 0.5s;
+    &-hamb {
+      right: 0;
+    }
+  }
+
+
+  .hamb-cintainer{
+    display: flex;
+  } 
+  .about__grid-container {
+    display: block;
+  }
+  .about__image-container img {
+    display: none;
+  }
+  .vr {
+    &__flex-container {
+      display: flex;
+      flex-direction: column-reverse;
+      gap: 20px;
+      align-items: center;
+    }
+    &__image{
+      width: 500px;
+      height: auto;
+    }
+  }
+  .title-h2 {
+    text-align: center;
+  }
+  
+.course__offer-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 100px;
+}
+.course__offer-item {
+  width: 400px;
+  height: auto;
+}
+.course__offer-item-text {
+  height: auto;
+}
+.coll-back{
+  &__container{
+      background: url(../assets/img/Coll-back-back.jpg);
+      background-position: center right 0;
+      background-size:cover;
+  }
+  &__block{
+      width: 70%;
+      padding: 100px 0;
+      margin: auto;
+  }
+  &__title{
+      text-align: center;
+  }
+  &__name,
+  &__email,
+  &__text,
+  &__submit{
+      display: block;
+      margin: 20px auto;
+      width: 80%;
+      padding: 20px 10px;
+      border-radius: 20px;
+      font-size: 16px;
+      resize: none
+  }
+  &__text{
+      height:120px
+  }
+}
+
+.contacts{
+  color: #fff;
+  &__container{
+      padding: 50px 0 0;
+  }
+  &__grid{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 2px solid #fff;
+      padding-bottom: 50px;
+      margin-bottom: 20px
+  }
+  &__location{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      font-size: 1.3rem;
+  }
+  &__links{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      gap: 20px;
+  }
+  &__item{
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.2s;
+      &:hover{
+          opacity: 0.6;
+      }
+  }
+  &__img{
+      width: 40px;
+  }
+  &__support{
+      & p{
+          padding-bottom: 10px;
+          font-weight: 100;
+          font-size: 0.8rem;
+      }
+      & a{
+          color: #fff;
+          text-decoration: none;
+          transition: all 0.2s;
+          &:hover{
+              opacity: 0.6;
+          }
+      }
+  }
+
+}
+}
+
+@media screen and (max-width: 768px) {
+  .navigation__items{
+    width: 100%;
+    padding: 20px 0 500px 0;
+    text-align: left;
+    left:  2000px;
+    &-hamb {
+      left: 0;
+    }
+  }
+  .intro {
+    &__skew-block {
+      transform: skew(0) translateX(0);
+      &-item {
+          &-1{
+              width: 100%;
+          }
+          &-2{
+              display: none;
+          }
+          &-3{
+            display: none;
+          }
+          &-4{
+            display: none;
+          }
+      }
+  }
+  }
+  .vr__image {
+    width: 280px;
+}
+.course__offer-item {
+  width: 280px;
+}
+.coll-back{
+       
+  &__block{
+      width: 80%;
+      padding: 100px 0;
+  }
+}
+
+.course__container {
+  padding: 20px 10px;
+  border-radius: 20px;
+}
+
+.course__carusel {
+width: 100%;
+height: 60vw;
+}
+
+.contacts{
+  color: #fff;
+  &__container{
+      padding: 50px 0 0;
+  }
+  &__grid{
+      flex-direction: column;
+      gap: 40px;
+  }
+  &__location{
+      display: flex;
+      flex-direction: column;
+      gap: 30px;
+      font-size: 1.3rem;
+  }
+  &__links{
+      display: flex;
+      justify-content: space-between;
+      flex-direction: column;
+      gap: 20px;
+  }
+  &__item{
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      color: #fff;
+      text-decoration: none;
+      transition: all 0.2s;
+      &:hover{
+          opacity: 0.6;
+      }
+  }
+  &__img{
+      width: 40px;
+  }
+  &__support{
+      & p{
+          padding-bottom: 10px;
+          font-weight: 100;
+          font-size: 0.8rem;
+      }
+      & a{
+          color: #fff;
+          text-decoration: none;
+          transition: all 0.2s;
+          &:hover{
+              opacity: 0.6;
+          }
+      }
+  }
+
+}
+.title-h2 {
+  font-size: 20px;
+}
 }
